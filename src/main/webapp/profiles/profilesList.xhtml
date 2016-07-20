@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <h:outputStylesheet library="css" name="style.css"/>i
+    <h:outputScript library="js" name="jquery-2.1.1.js" target="head"/>
+    <h:outputScript library="js" name="jquery-ui.min.js" target="head"/>
+</h:head>
+
+<body>
+<h1>Профили пользователей</h1>
+<h:form id="usrProfilesList" prependId="false">
+    <ul>
+        <ui:repeat value="#{profileListBean.usrProfiles}" var="usrProfile">
+            <li>
+                <h:outputText value="profileId: #{usrProfile.id}" styleClass="dBlock"/>
+                <h:outputText value="imgId: #{usrProfile.imgId}" styleClass="dBlock"/>
+                <h:commandLink value="Подробнее о профиле #{usrProfile.id}" action="profileDetails">
+                    <f:param name="profile_id" value="#{usrProfile.id}"/>
+                    <f:param name="img_id" value="#{usrProfile.imgId}"/>
+                </h:commandLink>
+            </li>
+        </ui:repeat>
+    </ul>
+</h:form>
+
+<div>
+    <h:outputLink value="../index.xhtml">На главную</h:outputLink>
+    <h:outputLink value="/index.xhtml">На главную</h:outputLink>
+</div>
+</body>
+</html>

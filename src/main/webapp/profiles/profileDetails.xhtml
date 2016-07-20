@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <h:outputStylesheet library="css" name="style.css"/>i
+    <h:outputScript library="js" name="jquery-2.1.1.js" target="head"/>
+    <h:outputScript library="js" name="jquery-ui.min.js" target="head"/>
+</h:head>
+<body>
+<h1><h:outputText value="Информация по профилю #{params.profile_id}"/></h1>
+<div>
+    <!-- TODO Картинку отдавать сервлетов из БД по profile_id -->
+    <h:outputText value="Изображения профиля" styleClass="dBlock"/>
+    <h:commandLink value="<img alt='Картинка профиля #{params.profile_id}' src='http://cucinatestarossa.blogs.com/weblog/images/cat.jpg'/>" action="#{profileBean.save(imgId)}"/>
+    <h:outputText value="id профиля: #{profileBean.profileInfo.id}" styleClass="dBlock"/>
+    <h:outputText value="id изображения: #{profileBean.profileInfo.imgId}" styleClass="dBlock"/>
+</div>
+<div>
+    <h:outputLink value="/profiles/profilesList.xhtml">К списку профилей</h:outputLink>
+    <h:outputLink value="profiles/profilesList.xhtml">К списку профилей</h:outputLink>
+</div>
+</body>
+</html>
